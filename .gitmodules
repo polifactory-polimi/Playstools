@@ -1,0 +1,3 @@
+[submodule "software/Playstools/RGBFader"]
+	path = software/Playstools/RGBFader
+	url = https://github.com/polifactory-polimi/RGBFader.git
