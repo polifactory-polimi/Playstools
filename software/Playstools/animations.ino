@@ -33,23 +33,11 @@ namespace master {
         }
     }
 
-    RGB random_color() {
-      /*RGB color;
-
-      do {
-        color = RGB(random(0, 255), random(0, 255), random(0, 255));
-      } while ((uint16_t)color.red + color.green + color.blue < 96);
-
-      return color;*/
-
-      return RGBFader::rainbowAndWhite[random(0, RGBFader::rainbowAndWhiteSize)];
-    }
-
     uint16_t a0(uint8_t stools_array[], uint8_t connected_stools) {
       const uint8_t iterations_num = random(16, 24);
       uint16_t last = 0;
   
-      colors[0] = random_color();
+      colors[0] = random(2) ? RGB(255, 0, 0) : RGB(0, 255, 0);  //Red or blue
       colors[1] = RGB();
   
       for (uint8_t i = 0; i < iterations_num; i++) {
@@ -140,7 +128,7 @@ namespace master {
       for (uint8_t i = 0; i < iterations_num; i++) {
         shuffle_array(stools_array, connected_stools);
 
-        colors[i * 3] = random_color();
+        colors[i * 3] = random(2) ? RGB(0, 255, 0) : RGB(0, 0, 255);  //Blue or green
         colors[i * 3 + 1] = colors[i * 3];
         colors[i * 3 + 2] = RGB();
 
